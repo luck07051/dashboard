@@ -7,7 +7,6 @@ const AppContainer = styled.a`
   padding: 1rem;
   color: ${(props) => props.theme.mainColor};
   font-weight: 500;
-  text-transform: uppercase;
   margin: 0;
   text-decoration: none;
   font-size: 1rem;
@@ -26,13 +25,10 @@ const DetailsContainer = styled.div`
 `;
 
 const AppName = styled.div`
-  a:hover {
-    text-decoration: underline;
-  }
+  text-transform: uppercase;
 `;
 
 const AppDescription = styled.p`
-  text-transform: uppercase;
   margin: 0;
   font-size: 0.65rem;
   font-weight: 400;

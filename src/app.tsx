@@ -4,6 +4,7 @@ import SearchBar from "./components/searchBar";
 import Greeter from "./components/greeter";
 import AppList from "./components/appList";
 import BookmarkList from "./components/bookmarks";
+import ReadlaterList from "./components/readlater";
 import Settings from "./components/settings";
 
 import { IThemeProps, getTheme, setScheme } from "./lib/useTheme";
@@ -33,6 +34,7 @@ const App = () => {
   const {
     appData,
     bookmarkData,
+    readlaterData,
     searchData,
     themeData,
     greeterData,
@@ -53,6 +55,7 @@ const App = () => {
           categories={appData.response?.categories}
         />
         <BookmarkList groups={bookmarkData.response?.groups} />
+        <ReadlaterList readlater={readlaterData.response?.readlater} />
         <Settings themes={themeData.response} search={searchData.response} />
       </div>
     </ThemeProvider>

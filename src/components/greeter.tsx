@@ -14,7 +14,6 @@ const GreetText = styled.h1`
 const DateText = styled.h3`
   font-weight: 400;
   font-size: 1rem;
-  text-transform: uppercase;
   margin: 0;
   color: ${(props) => props.theme.accentColor};
 `;
