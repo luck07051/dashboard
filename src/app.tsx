@@ -16,7 +16,8 @@ export const GlobalStyle = createGlobalStyle<{ theme: IThemeProps }>`
     font-family: Roboto, sans-serif;
 
     margin: auto;
-    max-width: 95%;
+    padding-top: 1rem;
+    max-width: 80%;
     max-height: 100%;
 
     @media (min-width: 1366px) {
@@ -46,13 +47,13 @@ const App = () => {
       <GlobalStyle />
       <div>
         <SearchBar search={searchData.response} />
-        <Settings themes={themeData.response} search={searchData.response} />
         <Greeter greeter={greeterData.response} />
         <AppList
           apps={appData.response?.apps}
           categories={appData.response?.categories}
         />
         <BookmarkList groups={bookmarkData.response?.groups} />
+        <Settings themes={themeData.response} search={searchData.response} />
       </div>
     </ThemeProvider>
   );

@@ -42,8 +42,9 @@ export const Item = styled.li`
 export const Button = styled.button`
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
-  font-weight: 400;
-  border: 1px solid ${(props) => props.theme.mainColor};
+  font-weight: 600;
+  //border: 1px solid ${(props) => props.theme.mainColor};
+  border: none;
   color: ${(props) => props.theme.mainColor};
   background: none;
 

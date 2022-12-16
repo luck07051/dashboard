@@ -31,7 +31,7 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled(Button)`
-  margin: 0px 2px;
+  margin: 0 0.5rem;
   min-height: 0;
 `;
 
