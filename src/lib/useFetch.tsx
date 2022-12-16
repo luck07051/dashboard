@@ -4,7 +4,6 @@ import { IAppListProps } from "../components/appList";
 import { IBookmarkListProps } from "../components/bookmarks";
 import { ISearchProps } from "../components/searchBar";
 import { IThemeDataProps } from "./useTheme";
-import { IImprintProps } from "../components/imprint";
 import { IGreeterDataProps } from "../components/greeter";
 
 export interface IDataProps<I> {
@@ -40,7 +39,6 @@ interface IFetchProps {
   bookmarkData: IDataProps<IBookmarkListProps>;
   searchData: IDataProps<ISearchProps>;
   themeData: IDataProps<IThemeDataProps>;
-  imprintData: IDataProps<IImprintProps>;
   greeterData: IDataProps<IGreeterDataProps>;
   callback?: () => void;
 }
@@ -58,8 +56,6 @@ export const useFetcher = (): IFetchProps => {
     useState<IDataProps<ISearchProps>>(defaults);
   const [themeData, setThemeData] =
     useState<IDataProps<IThemeDataProps>>(defaults);
-  const [imprintData, setImprintData] =
-    useState<IDataProps<IImprintProps>>(defaults);
   const [greeterData, setGreeterData] =
     useState<IDataProps<IGreeterDataProps>>(defaults);
 
@@ -69,19 +65,17 @@ export const useFetcher = (): IFetchProps => {
       "bookmarks",
       "search",
       "themes",
-      "imprint",
       "greeter",
     ];
 
     Promise.all(files.map((f) => fetchFile(f))).then(
-      ([apps, bookmarks, search, themes, imprint, greeter]: any) => {
+      ([apps, bookmarks, search, themes, greeter]: any) => {
         setAppData({ response: apps });
         setBookmarkData({
           response: bookmarks,
         });
         setSearchData({ response: search });
         setThemeData({ response: themes });
-        setImprintData({ response: imprint });
         setGreeterData({ response: greeter });
       },
     );
@@ -94,7 +88,6 @@ export const useFetcher = (): IFetchProps => {
     bookmarkData,
     searchData,
     themeData,
-    imprintData,
     greeterData,
   };
 };

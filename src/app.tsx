@@ -5,7 +5,6 @@ import Greeter from "./components/greeter";
 import AppList from "./components/appList";
 import BookmarkList from "./components/bookmarks";
 import Settings from "./components/settings";
-import Imprint from "./components/imprint";
 
 import { IThemeProps, getTheme, setScheme } from "./lib/useTheme";
 import useFetch from "./lib/useFetch";
@@ -15,7 +14,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: IThemeProps }>`
   body {
     background-color: ${(props) => props.theme.backgroundColor};
     font-family: Roboto, sans-serif;
-  
+
     margin: auto;
     max-width: 95%;
     max-height: 100%;
@@ -35,7 +34,6 @@ const App = () => {
     bookmarkData,
     searchData,
     themeData,
-    imprintData,
     greeterData,
   } = useFetch();
 
@@ -55,7 +53,6 @@ const App = () => {
           categories={appData.response?.categories}
         />
         <BookmarkList groups={bookmarkData.response?.groups} />
-        <Imprint imprint={imprintData.response} />
       </div>
     </ThemeProvider>
   );
