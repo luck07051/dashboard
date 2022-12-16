@@ -9,6 +9,10 @@ const Search = styled.form`
 
   display: flex;
 
+  border: none;
+  border-bottom: 1px solid ${(props) => props.theme.accentColor};
+  border-radius: 0;
+
   padding-top: 0.25rem;
 `;
 
@@ -19,7 +23,6 @@ const SearchInput = styled.input`
   font-size: 1rem;
 
   border: none;
-  border-bottom: 1px solid ${(props) => props.theme.accentColor};
   border-radius: 0;
 
   background: none;
@@ -117,19 +120,19 @@ const SearchBar = ({ search }: ISearchBarProps) => {
         }
       ></SearchInput>
       <SearchButton
+        type="submit"
+        data-testid="search-submit"
+        hidden={buttonsHidden}
+      >
+        Search
+      </SearchButton>
+      <SearchButton
         type="button"
         data-testid="search-clear"
         onClick={() => setInput("")}
         hidden={buttonsHidden}
       >
         Clear
-      </SearchButton>
-      <SearchButton
-        type="submit"
-        data-testid="search-submit"
-        hidden={buttonsHidden}
-      >
-        Search
       </SearchButton>
     </Search>
   );
