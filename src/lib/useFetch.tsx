@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 
 import { IAppListProps } from "../components/appList";
 import { IBookmarkListProps } from "../components/bookmarks";
-import { IReadlaterListProps } from "../components/readlater";
 import { ISearchProps } from "../components/searchBar";
 import { IThemeDataProps } from "./useTheme";
 import { IGreeterDataProps } from "../components/greeter";
@@ -38,7 +37,6 @@ const fetchFile = (f: string) => {
 interface IFetchProps {
   appData: IDataProps<IAppListProps>;
   bookmarkData: IDataProps<IBookmarkListProps>;
-  readlaterData: IDataProps<IReadlaterListProps>;
   searchData: IDataProps<ISearchProps>;
   themeData: IDataProps<IThemeDataProps>;
   greeterData: IDataProps<IGreeterDataProps>;
@@ -54,8 +52,6 @@ export const useFetcher = (): IFetchProps => {
   const [appData, setAppData] = useState<IDataProps<IAppListProps>>(defaults);
   const [bookmarkData, setBookmarkData] =
     useState<IDataProps<IBookmarkListProps>>(defaults);
-  const [readlaterData, setReadlaterData] =
-    useState<IDataProps<IReadlaterListProps>>(defaults);
   const [searchData, setSearchData] =
     useState<IDataProps<ISearchProps>>(defaults);
   const [themeData, setThemeData] =
@@ -67,17 +63,15 @@ export const useFetcher = (): IFetchProps => {
     const files = [
       "apps",
       "bookmarks",
-      "readlater",
       "search",
       "themes",
       "greeter",
     ];
 
     Promise.all(files.map((f) => fetchFile(f))).then(
-      ([apps, bookmarks, readlater, search, themes, greeter]: any) => {
+      ([apps, bookmarks, search, themes, greeter]: any) => {
         setAppData({ response: apps });
         setBookmarkData({ response: bookmarks, });
-        setReadlaterData({ response: readlater, });
         setSearchData({ response: search });
         setThemeData({ response: themes });
         setGreeterData({ response: greeter });
@@ -90,7 +84,6 @@ export const useFetcher = (): IFetchProps => {
   return {
     appData,
     bookmarkData,
-    readlaterData,
     searchData,
     themeData,
     greeterData,
